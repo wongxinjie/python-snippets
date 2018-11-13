@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+*$py.class
+*.md~
+*.py~
+
+env/
+build/
+develop-eggs/
+dist/
+eggs/
+.eggs/
+
+.idea/
+celerybeat-schedule
+

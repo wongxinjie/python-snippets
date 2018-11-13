@@ -1,0 +1,45 @@
+This is ApacheBench, Version 2.3 <$Revision: 1748469 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking localhost (be patient)
+
+
+Server Software:        gunicorn/19.6.0
+Server Hostname:        localhost
+Server Port:            5000
+
+Document Path:          /func-apply-seqver
+Document Length:        18 bytes
+
+Concurrency Level:      100
+Time taken for tests:   15.729 seconds
+Complete requests:      5000
+Failed requests:        0
+Total transferred:      850000 bytes
+Total body sent:        725000
+HTML transferred:       90000 bytes
+Requests per second:    317.89 [#/sec] (mean)
+Time per request:       314.575 [ms] (mean)
+Time per request:       3.146 [ms] (mean, across all concurrent requests)
+Transfer rate:          52.77 [Kbytes/sec] received
+                        45.01 kb/s sent
+                        97.79 kb/s total
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.7      0       6
+Processing:    25  311  30.1    315     371
+Waiting:       25  311  30.1    314     371
+Total:         32  311  29.7    315     371
+
+Percentage of the requests served within a certain time (ms)
+  50%    315
+  66%    324
+  75%    328
+  80%    333
+  90%    343
+  95%    351
+  98%    358
+  99%    362
+ 100%    371 (longest request)

@@ -1,0 +1,49 @@
+#!/bin/bash
+#
+###
+# aiohttp_server service. {start, stop}
+#
+#
+set -e
+
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+PYTHON=/Users/wongxinjie/.virtualenvs/benchmark/bin/python
+LOG=/tmp/log/benchmark
+AIOHTTP_PATH=/Users/wongxinjie/tmp/little-py-code-collections/async-http-framework-benchmark
+AIOHTTP_SERVER=/Users/wongxinjie/tmp/little-py-code-collections/async-http-framework-benchmark/aiohttp_server.py
+PID_PATH=/tmp/run/benchmark
+AIOHTTP_SERVER_PID=$PID_PATH/aiohtt_server.pid
+
+DESC=aiohttp_server
+
+test -x $PYTHON || exit 1
+
+# create necessary logs directory
+
+if [ ! -d $LOG ]; then
+    mkdir -p $LOG
+fi
+if [ ! -d $PID_PATH ]; then
+    mkdir -p $PID_PATH
+fi
+
+case "$1" in
+    start)
+        echo "Starting $DESC service: "
+        cd $AIOHTTP_PATH
+        $PYTHON $AIOHTTP_SERVER > /dev/null 2>&1 &
+        echo $! > $AIOHTTP_SERVER_PID
+        echo "$DESC start"
+        ;;
+    stop)
+        echo "Stop $DESC service: "
+        kill -s HUP $(cat $AIOHTTP_SERVER_PID) && rm -f $AIOHTTP_SERVER_PID
+        echo "$DESC stop"
+        ;;
+    *)
+        echo "Usage: $DESC {start|stop}"
+        exit 1
+        ;;
+esac
+exit 0
+

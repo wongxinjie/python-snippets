@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+service Token {
+    rpc generate (TokenRequest) returns (TokenResponse) {}
+}
+
+message TokenRequest {
+    string key = 1;
+}
+
+
+message TokenResponse {
+    string token = 1;
+}
