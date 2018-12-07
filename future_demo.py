@@ -7,6 +7,7 @@ def get_page_size(url, timeout):
     with urllib.request.urlopen(url, timeout=timeout) as conn:
         return url, len(conn.read())
 
+
 TASKS = [
     (get_page_size, 'https://www.zhihu.com', 60),
     (get_page_size, 'https://www.baidu.com', 60),
