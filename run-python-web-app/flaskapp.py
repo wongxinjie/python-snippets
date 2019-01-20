@@ -20,7 +20,7 @@ def receiver():
 
 @app.route('/block')
 def block_view():
-    gevent.sleep(10)
+    time.sleep(0.1)
     print('block view processing finish')
     return jsonify({"content": "block view ok"})
 
